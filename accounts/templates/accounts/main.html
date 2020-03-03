@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 
 <html lang="en">
@@ -9,34 +10,20 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <style>
-        #logo {}
-
-        body {
-            background-color: #ebeff5;
-        }
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
 
 
-        #total-orders {
-            background-color: #4cb4c7;
-        }
-
-
-        #orders-delivered {
-            background-color: #7abecc;
-        }
-
-        #orders-pending {
-            background-color: #7CD1C0;
-        }
-    </style>
 </head>
 
 <body>
     {% include "accounts/navbar.html" %}
-    {% block content%}
-    {% endblock%}
+    <div class="container-fluid">
+        {% block content%}
+
+        {% endblock%}
+
+    </div>
+
     <hr>
     <h5>Footer</h5>
 </body>
