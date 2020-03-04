@@ -1,7 +1,7 @@
-{% extends "accounts/main.html" %}
-{% load static %}
+{%  extends 'accounts/main.html' %}
 
-{% block content%}
+{% block content %}
+
 <br>
 
 <div class="row">
@@ -10,7 +10,8 @@
             <h5>Customer:</h5>
             <hr>
             <a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
-            <a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place
+                Order</a>
 
         </div>
     </div>
@@ -39,6 +40,7 @@
     <div class="col">
         <div class="card card-body">
             <form method="get">
+                {{myFilter.form}}
 
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
@@ -54,21 +56,23 @@
             <table class="table table-sm">
                 <tr>
                     <th>Product</th>
-                    <th>Category</th>
+                    <th>Note</th>
                     <th>Date Orderd</th>
                     <th>Status</th>
                     <th>Update</th>
                     <th>Remove</th>
                 </tr>
+
                 {% for order in orders %}
+
                 <tr>
                     <td>{{order.product}}</td>
-                    <td>{{order.product.category}}</td>
+                    <td>{{order.note}}</td>
                     <td>{{order.date_created}}</td>
                     <td>{{order.status}}</td>
                     <td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
-                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
 
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
                 </tr>
                 {% endfor %}
 
@@ -77,4 +81,4 @@
     </div>
 </div>
 
-{% endblock%}
+{% endblock %}
