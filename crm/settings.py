@@ -25,7 +25,7 @@ SECRET_KEY = "ygxlm3i#8t+@i=&x3jm+72&i1ztygx$l4&wlkdq4^%uypfd!-3"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["marline-crm.herokuapp.com", "127.0.0.1."]
+ALLOWED_HOSTS = ["marline-crm.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -76,14 +76,20 @@ WSGI_APPLICATION = "crm.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "accounts",
+#         "USER": "postgres",
+#         "PASSWORD": "password",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "accounts",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 # Password validation
