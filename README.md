@@ -1,9 +1,9 @@
-# Django-customer management system
+### Customer management system
 
 ##### How to build a fully functioning CRM using:
 
 - Python
- - Django
+- Django
  
  
 ![alt text](hh.png "Description goes here")
